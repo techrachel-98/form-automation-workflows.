@@ -1,0 +1,195 @@
+{
+  "name": "Form Automation",
+  "nodes": [
+    {
+      "parameters": {
+        "content": "#Automation 1\n\n### First automation to understand the working of nodes and inside settings or configuration",
+        "height": 128,
+        "width": 272,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -48,
+        -128
+      ],
+      "typeVersion": 1,
+      "id": "cb2091c9-5040-4af0-952d-e803a5a09cb0",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "formTitle": "Rachel Consultation Form",
+        "formDescription": "Hi there, glad to meet you!\nPls fill in the below details so as to connect with Rachel for AI consultation",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Name",
+              "placeholder": "Your name"
+            },
+            {
+              "fieldLabel": "Your email",
+              "placeholder": "Email"
+            }
+          ]
+        },
+        "options": {
+          "appendAttribution": false,
+          "customCss": ":root {\n\t--font-family: 'Open Sans', sans-serif;\n\t--font-weight-normal: 400;\n\t--font-weight-bold: 600;\n\t--font-size-body: 12px;\n\t--font-size-label: 14px;\n\t--font-size-test-notice: 12px;\n\t--font-size-input: 14px;\n\t--font-size-header: 20px;\n\t--font-size-paragraph: 14px;\n\t--font-size-link: 12px;\n\t--font-size-error: 12px;\n\t--font-size-html-h1: 28px;\n\t--font-size-html-h2: 20px;\n\t--font-size-html-h3: 16px;\n\t--font-size-html-h4: 14px;\n\t--font-size-html-h5: 12px;\n\t--font-size-html-h6: 10px;\n\t--font-size-subheader: 14px;\n\n\t/* Colors */\n\t--color-background: #fbfcfe;\n\t--color-test-notice-text: #e6a23d;\n\t--color-test-notice-bg: #fefaf6;\n\t--color-test-notice-border: #f6dcb7;\n\t--color-card-bg: #ffffff;\n\t--color-card-border: #dbdfe7;\n\t--color-card-shadow: rgba(99, 77, 255, 0.06);\n\t--color-link: #7e8186;\n\t--color-header: #525356;\n\t--color-label: #555555;\n\t--color-input-border: #dbdfe7;\n\t--color-input-text: #71747A;\n\t--color-focus-border: rgb(90, 76, 194);\n\t--color-submit-btn-bg: #ff6d5a;\n\t--color-submit-btn-text: #ffffff;\n\t--color-error: #ea1f30;\n\t--color-required: #ff6d5a;\n\t--color-clear-button-bg: #7e8186;\n\t--color-html-text: #555;\n\t--color-html-link: #ff6d5a;\n\t--color-header-subtext: #7e8186;\n\n\t/* Border Radii */\n\t--border-radius-card: 8px;\n\t--border-radius-input: 6px;\n\t--border-radius-clear-btn: 50%;\n\t--card-border-radius: 8px;\n\n\t/* Spacing */\n\t--padding-container-top: 24px;\n\t--padding-card: 24px;\n\t--padding-test-notice-vertical: 12px;\n\t--padding-test-notice-horizontal: 24px;\n\t--margin-bottom-card: 16px;\n\t--padding-form-input: 12px;\n\t--card-padding: 24px;\n\t--card-margin-bottom: 16px;\n\n\t/* Dimensions */\n\t--container-width: 448px;\n\t--submit-btn-height: 48px;\n\t--checkbox-size: 18px;\n\n\t/* Others */\n\t--box-shadow-card: 0px 4px 16px 0px var(--color-card-shadow);\n\t--opacity-placeholder: 0.5;\n}"
+        }
+      },
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.6,
+      "position": [
+        -160,
+        96
+      ],
+      "id": "0f15d402-7420-4433-9b57-f5797c37e574",
+      "name": "On form submission",
+      "webhookId": "6a71b13c-0b5f-463f-a54d-4e4c772dc3e8",
+      "notesInFlow": true,
+      "notes": "My first form"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1S3heeANtduJOtcY-1Fse9KGQm8pDFZ79KaxPwXr1hY4",
+          "mode": "list",
+          "cachedResultName": "Leads",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1S3heeANtduJOtcY-1Fse9KGQm8pDFZ79KaxPwXr1hY4/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1S3heeANtduJOtcY-1Fse9KGQm8pDFZ79KaxPwXr1hY4/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Name ": "={{ $json.Name }}",
+            "Email ": "={{ $json['Your email'] }}",
+            "Time": "={{ $json.submittedAt }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Name ",
+              "displayName": "Name ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Email ",
+              "displayName": "Email ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Time",
+              "displayName": "Time",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        48,
+        96
+      ],
+      "id": "ce1e4c31-55cf-4a3b-9042-bf5f4e0fc5c9",
+      "name": "Append row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "Ot1E17fP2vDqrBkJ",
+          "name": "Google Sheets account 2"
+        }
+      },
+      "notes": "My first sheet"
+    },
+    {
+      "parameters": {
+        "sendTo": "techrachel6@gmail.com",
+        "subject": "Form Lead Update",
+        "emailType": "text",
+        "message": "=Hi Rachel,\n\nThere is a new lead in the form. \nName :  {{ $json['Name '] }}\nEmail:  {{ $json['Email '] }}\nTime : {{ $json.Time }}\n\nSource : {{ $workflow }}\n\nThanks,",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        256,
+        96
+      ],
+      "id": "9dd4b0bb-982b-4faa-92ea-1d40105f996c",
+      "name": "Send a message",
+      "webhookId": "ff78c87c-9e98-47ce-b5a9-0128adaf4d8a",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "lYZgtkOqokQGDTP5",
+          "name": "Gmail account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "On form submission": {
+      "main": [
+        [
+          {
+            "node": "Append row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append row in sheet": {
+      "main": [
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "c5b21848-37f7-4a24-bbed-8a109e44cc3c",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "f2e44a856cb7044211a9dff965cd6f44d49445b9f3e8ad7411f3385d02f02cbc"
+  },
+  "nodeGroups": [],
+  "id": "z07UjtwSfn8o1lqV",
+  "tags": []
+}
