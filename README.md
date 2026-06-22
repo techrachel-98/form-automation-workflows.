@@ -48,8 +48,5 @@ Manual lead handling has two recurring failure points: leads sit unacknowledged 
 
 ## Screenshot
 
-![Workflow Canvas](screenshots/workflow-diagram.png)
-
----
-
+![Workflow Canvas](workflow-diagram.png)
 *Part of an ongoing portfolio of n8n automation workflows — see other repos for AI-integrated examples.*
